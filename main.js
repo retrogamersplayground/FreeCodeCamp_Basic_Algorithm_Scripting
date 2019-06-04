@@ -59,6 +59,8 @@ findLongestWordLength("What is the average airspeed velocity of an unladen swall
 findLongestWordLength("What if we try a super-long word such as otorhinolaryngology");
 */
 
+
+
 //Return Largest Numbers in Arrays
 /*
 function largestOfFour(arr) {
@@ -70,6 +72,8 @@ largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 85
 */
 
 
+
+/*
 //Confirm the Ending
 
 function confirmEnding(str, target) {
@@ -95,3 +99,25 @@ function confirmEnding(str, target) {
 //console.log(confirmEnding("If you want to save our world, you must hurry. We dont know how much longer we can withstand the nothing", "mountain"));
 
 //console.log(confirmEnding("Abstraction", "action"));
+*/
+
+
+
+//Repeat a String Repeat a String
+
+function repeatStringNumTimes(str, num) {
+  var newStr = "";
+
+  for(let i = 1; i <= num; i++) {
+    if(num > 0) {
+      newStr = newStr + str;
+      }
+    }
+    return newStr;
+}
+    repeatStringNumTimes("*", 3);
+    repeatStringNumTimes("abc", 3); 
+    repeatStringNumTimes("abc", 4);
+    repeatStringNumTimes("abc", 1);
+    repeatStringNumTimes("*", 8);
+    repeatStringNumTimes("abc", -2);
