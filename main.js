@@ -104,7 +104,7 @@ function confirmEnding(str, target) {
 
 
 //Repeat a String Repeat a String
-
+/*
 function repeatStringNumTimes(str, num) {
   var newStr = "";
 
@@ -121,3 +121,38 @@ function repeatStringNumTimes(str, num) {
     repeatStringNumTimes("abc", 1);
     repeatStringNumTimes("*", 8);
     repeatStringNumTimes("abc", -2);
+*/
+
+
+//Truncate a String
+
+function truncateString(str, num) {
+  let arr = str.split('');
+  let arrRev = arr.reverse();
+  let newStr = arrRev.join('');
+
+  let sliced = newStr.slice(-num);
+  let slicedArr = sliced.split('');
+  let slicedArrRev = slicedArr.reverse();
+  let newSlicedStr = slicedArrRev.join('');
+
+  let slicedC = newSlicedStr + '...';
+
+  if(newSlicedStr === str) {
+    console.log(str);
+    return str;
+  } else {
+    console.log(slicedC);
+    return slicedC;
+  }
+}
+
+
+
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
+truncateString("Peter Piper picked a peck of pickled peppers", 11);
+truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length);
+truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length + 2);
+truncateString("A-", 1);
+truncateString("Absolutely Longer", 2);
