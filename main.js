@@ -125,7 +125,7 @@ function repeatStringNumTimes(str, num) {
 
 
 //Truncate a String
-
+/*
 function truncateString(str, num) {
   let arr = str.split('');
   let arrRev = arr.reverse();
@@ -147,12 +147,59 @@ function truncateString(str, num) {
   }
 }
 
-
-
-
 truncateString("A-tisket a-tasket A green and yellow basket", 8);
 truncateString("Peter Piper picked a peck of pickled peppers", 11);
 truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length);
 truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length + 2);
 truncateString("A-", 1);
 truncateString("Absolutely Longer", 2);
+*/
+
+
+//Finders Keepers
+
+
+
+//findElement([1, 2, 3, 4], num => num % 2 === 0);
+//findElement([1, 3, 5, 8, 9, 10], function(num) { return num % 2 === 0; });
+//findElement([1, 3, 5, 9], function(num) { return num % 2 === 0; });
+
+
+//Falsey Bouncer
+/*
+function bouncer(arr) {
+let i;
+  
+    if(arr[i] != false) {
+      console.log(arr[i]);
+    }
+  }
+
+
+bouncer([7, "ate", "", false, 9]);
+//bouncer(["a", "b", "c"]);
+//bouncer([false, null, 0, NaN, undefined, ""]);
+//bouncer([1, null, NaN, 2, undefined]);
+
+*/
+
+//Where Do I Belong
+//completed
+/*
+function getIndexToIns(arr, num) {
+  arr.push(num);
+  let newArr = arr.sort(function(a,b) {
+    return a - b
+  });
+  
+  for(let i = 0; i < newArr.length; i++) {
+    if(newArr[i] === num) {
+      console.log(newArr.indexOf(newArr[i]));
+      return newArr.indexOf(newArr[i]));
+    }
+  }
+}
+
+getIndexToIns([40, 60], 50);
+getIndexToIns([2, 20, 10], 19);
+*/
