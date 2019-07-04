@@ -69,13 +69,73 @@ findLongestWordLength("What if we try a super-long word such as otorhinolaryngol
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 //Return Largest Numbers in Arrays
-/*
+
+
+
 function largestOfFour(arr) {
+  let result = [];
+  let arrOne = arr[0];
+
+  let sortedOne = arrOne.sort(function(a,b) {
+    return a - b;
+  });
+
+  let arrTwo = arr[1];
+  let sortedTwo = arrTwo.sort(function(a,b) {
+    return a - b;
+  });
+
+  let arrThree = arr[2];
+  let sortedThree = arrThree.sort(function(a,b) {
+    return a - b;
+  });
+
+  let arrFour = arr[3];
+  let sortedFour = arrFour.sort(function(a,b) {
+    return a - b;
+  });
+
+  result.push(sortedOne[sortedOne.length - 1]);
+  //console.log(result);
+  result.push(sortedTwo[sortedTwo.length - 1]);
+  //console.log(result);
+  result.push(sortedThree[sortedThree.length - 1]);
+  //console.log(result);
+  result.push(sortedFour[sortedFour.length - 1]);
+  console.log(result);
+  
+  return result;
 }
   
 largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
-*/
+largestOfFour([[13, 27, 18, 26], [4, 5, 1, 3], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+largestOfFour([[4, 9, 1, 3], [13, 35, 18, 26], [32, 35, 97, 39], [1000000, 1001, 857, 1]]);
+largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -371,11 +431,8 @@ chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4);
 chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3);
 chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4);
 chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2);
+
 */
 
 
 
-
-//testing push pull
-
-//retesting push pull
