@@ -70,20 +70,9 @@ findLongestWordLength("What if we try a super-long word such as otorhinolaryngol
 
 
 
-
-
-
-
-
-
-
-
-
-
 //Return Largest Numbers in Arrays
-
-
-
+//Completed
+/*
 function largestOfFour(arr) {
   let result = [];
   let arrOne = arr[0];
@@ -123,17 +112,7 @@ largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 85
 largestOfFour([[13, 27, 18, 26], [4, 5, 1, 3], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
 largestOfFour([[4, 9, 1, 3], [13, 35, 18, 26], [32, 35, 97, 39], [1000000, 1001, 857, 1]]);
 largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]);
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 
@@ -158,6 +137,9 @@ function confirmEnding(str, target) {
 //console.log(confirmEnding("If you want to save our world, you must hurry. We dont know how much longer we can withstand the nothing", "mountain"));
 //console.log(confirmEnding("Abstraction", "action"));
 */
+
+
+
 
 
 
@@ -220,31 +202,61 @@ truncateString("Absolutely Longer", 2);
 
 
 
+
+
+
 //Finders Keepers
+//first attempt
 /*
 function findElement(arr, func) {
   let num = 0;
-  return num;
-}
+  for(let i = 0; i < arr.length; i++) {
+    num = arr[i];
+      if(func) {
+        console.log(num);
+        return num;
+      } 
+    }
+    console.log('undefined');
+    return undefined;
+  }
+
+//Completed but looked at solution
+function findElement(arr, func) {
+  let num = 0;
+  for(let i = 0; i < arr.length; i++) {
+    num = arr[i];
+      if(func(num)) {
+        console.log(num);
+        return num;
+      } 
+    }
+    console.log('undefined');
+    return undefined;
+  }
 
 findElement([1, 2, 3, 4], num => num % 2 === 0);
+findElement([1, 3, 5, 8, 9, 10], function(num) { return num % 2 === 0; });
+findElement([1, 3, 5, 9], function(num) { return num % 2 === 0; });
 */
 
 
 
 
+
 //Boo Who
+//COMPLETED
 /*
 function booWho(bool) {
-  if(typeof bool === 'number') {
-    console.log(true);
+  if(typeof bool === "boolean") {
+    console.log("true");
     return true;
   } else {
-    console.log(false);
+    console.log("false");
     return false;
   }
 }
-  
+
 booWho(null);
 booWho(true);
 booWho(false);
@@ -257,6 +269,7 @@ booWho("a");
 booWho("true");
 booWho("false");
 */
+
 
 
 
@@ -317,22 +330,41 @@ frankenSplice(["claw", "tentacle"], ["head", "shoulders", "knees", "toes"], 2);
 
 
 //Falsy Bouncer
+//COMPLETED
 /*
 function bouncer(arr) {
-  let i;
-  for(i = 0; i < arr.length; i++) {
-    if(arr[i] !== false && arr[i] !== null && arr[i] !== undefined && arr[i] !== NaN && arr[i] !== 0 && arr[i] !== ''){
-      console.log(arr[i]);
-    } 
+  let result = [];
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] !== false && arr[i] !== null && arr[i] !== 0 && arr[i] !== undefined && arr[i] && arr[i] !== '') {
+      result.push(arr[i]);
+    }
   }
+  console.log(result);
+  return result;
 }
 
 bouncer([7, "ate", "", false, 9]);
-console.log('/////');
 bouncer(["a", "b", "c"]);
-console.log('/////');
 bouncer([false, null, 0, NaN, undefined, ""]);
-console.log('/////');
+bouncer([1, null, NaN, 2, undefined]);
+*/
+
+//better answer
+/*
+function bouncer(arr) {
+  let result = [];
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i]) {
+      result.push(arr[i]);
+    }
+  }
+  console.log(result);
+  return result;
+}
+
+bouncer([7, "ate", "", false, 9]);
+bouncer(["a", "b", "c"]);
+bouncer([false, null, 0, NaN, undefined, ""]);
 bouncer([1, null, NaN, 2, undefined]);
 */
 
@@ -359,6 +391,8 @@ function getIndexToIns(arr, num) {
 
 getIndexToIns([10, 20, 30, 40, 50], 35);
 */
+
+
 
 
 
@@ -416,23 +450,97 @@ mutation(["hello", "hey"]);
 
 //Chunky Monkey
 /*
+//attempt one
 function chunkArrayInGroups(arr, size) {
-  let arrTwo = arr.slice(0,size);
-  let arrThree = arr.slice(size, (size + size));
-  let result = [arrTwo,arrThree];
+  let newArr = [];
+  let result = [];
+  
+  while(arr.length > size) {
+    for(let i = 0; i < arr.length; i ++) {
+        if(arr.length != size - 1) {
+          newArr = arr.slice(0,size);
+        }
+    }
+    result.push(newArr);
+    while(arr[0] === newArr[0] || arr[0] === newArr[1]) {
+      arr.shift()
+    }
+  }
+  //console.log(result);
+  result.push(arr);
   console.log(result);
   return result;
+}  
+*/
+
+/*
+//attempt two
+function chunkArrayInGroups(arr, size) {
+  let newArr = [];
+  let result = [];
+  
+  while(arr.length > size) {
+    for(let i = 0; i < arr.length; i ++) {
+        if(arr.length != size - 1) {
+          newArr = arr.slice(0,size);
+        }
+    }
+    result.push(newArr);
+    for(let y = 0; y <= arr.length; y++)
+    while(arr[0] === newArr[y]) {
+      arr.shift();
+    }
+  }
+  //console.log(result);
+  result.push(arr);
+  //console.log(result);
+  return result;
+}  
+*/
+//third attempt
+/*
+function chunkArrayInGroups(arr, size) {
+  let newArr = [];
+  let result = [];
+  
+  while(arr.length > size) {
+    for(let i = 0; i < arr.length; i ++) {
+        if(arr.length != size - 1) {
+          newArr = arr.slice(0,size);
+        }
+    }
+    result.push(newArr);
+    for(let y = 0; y <= arr.length; y++) {
+    while(arr[0] === newArr[y]) {
+      arr.shift();
+    }
+  }
 }
 
-chunkArrayInGroups(["a", "b", "c", "d"], 2);
-chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3);
-chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2);
-chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4);
-chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3);
-chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4);
-chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2);
+  result.push(arr);
+  console.log(result);
+  return result;
+  
+}  
 
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3);
+
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2);
+
+chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4);
+
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3);
+
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4);
+
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2);
 */
+
+
+
+
 
 
 
